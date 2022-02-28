@@ -7,16 +7,7 @@
     <artifactId>fast-claw</artifactId>
     <packaging>pom</packaging>
     <version>${fastclaw.version}</version>
-    <modules>
-        <module>fast-claw-example</module>
-        <module>fast-claw-engine</module>
-        <module>fast-claw-downloader</module>
-        <module>fast-claw-scheduler</module>
-        <module>fast-claw-common</module>
-        <module>fast-claw-pipeline</module>
-        <module>fast-claw-spider</module>
-        <module>fast-claw-event</module>
-    </modules>
+    <modules></modules>
 
     <properties>
         <java.version>11</java.version>
