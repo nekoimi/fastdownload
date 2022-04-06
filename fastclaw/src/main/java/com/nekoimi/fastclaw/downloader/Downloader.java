@@ -5,5 +5,5 @@ package com.nekoimi.fastclaw.downloader;
  *
  * @author nekoimi  2022/4/2 9:56
  */
-public interface IDownloader extends Runnable {
+public interface Downloader extends Runnable {
 }

@@ -14,11 +14,20 @@ public class LoggerImpl implements Logger {
     private final static DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     /**
-     * <p>应用名称</p>
+     * <p>日志等级</p>
+     */
+    private final int level;
+
+    /**
+     * <p>日志名称</p>
      */
     private final String name;
 
+    /**
+     * @param name 日志名称
+     */
     public LoggerImpl(String name) {
+        this.level = 100;
         this.name = name;
     }
 
