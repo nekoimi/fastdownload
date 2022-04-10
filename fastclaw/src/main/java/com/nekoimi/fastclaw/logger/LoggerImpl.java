@@ -22,7 +22,7 @@ public class LoggerImpl implements Logger {
     /**
      * <p>日志等级</p>
      */
-    private final int level;
+    private final Level level;
 
     /**
      * <p>日志名称</p>
@@ -43,7 +43,7 @@ public class LoggerImpl implements Logger {
      * @param name 日志名称
      */
     public LoggerImpl(String name) {
-        this.level = Level.ERROR.getLevel();
+        this.level = LogProperties.getInstance().getLevel();
         this.name = name;
         this.logFormatMap = new ConcurrentHashMap<>();
         this.adapterList = LoggerFactory.getAdapters();
@@ -119,7 +119,7 @@ public class LoggerImpl implements Logger {
 
     @Override
     public boolean isEnable(Level level) {
-        return this.level >= level.getLevel();
+        return this.level.getLevel() <= level.getLevel();
     }
 
     @Override
