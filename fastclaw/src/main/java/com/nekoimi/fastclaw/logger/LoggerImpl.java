@@ -57,6 +57,9 @@ public class LoggerImpl implements Logger {
         builder.append(Thread.currentThread().getName());
         builder.append("] ");
         builder.append(level.getName());
+        builder.append(" [");
+        builder.append(this.name);
+        builder.append("] ");
         builder.append(callerFormatInfo());
         builder.append(" - ");
         builder = logFormat.format(builder, args);
@@ -149,11 +152,11 @@ public class LoggerImpl implements Logger {
         // 调用深度和当前方法调用位置有关
         int callerDeep = 5;
         StringBuilder builder = new StringBuilder();
-        builder.append(" [");
-        builder.append(trace[callerDeep].getClassName());
-        builder.append("@");
-        builder.append(trace[callerDeep].getMethodName());
-        builder.append("] ");
+//        builder.append(" [");
+//        builder.append(trace[callerDeep].getClassName());
+//        builder.append("@");
+//        builder.append(trace[callerDeep].getMethodName());
+//        builder.append("] ");
         builder.append(trace[callerDeep].getFileName());
         builder.append(":");
         builder.append(trace[callerDeep].getLineNumber());
