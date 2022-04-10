@@ -1,5 +1,6 @@
 package com.nekoimi.fastclaw;
 
+import com.nekoimi.fastclaw.logger.Level;
 import com.nekoimi.fastclaw.logger.Logger;
 import com.nekoimi.fastclaw.logger.LoggerFactory;
 
@@ -10,6 +11,10 @@ public class FastClaw {
     private static final Logger logger = LoggerFactory.getLogger(FastClaw.class);
 
     public static void main(String[] args) {
-        logger.debug("测{}试", "AAA");
+        logger.log(Level.DEBUG, "测{}试 - LOG", "DEBUG");
+        logger.debug("测{}试", "DEBUG");
+        logger.info("测{}试", "INFO");
+        logger.warn("测{}试", "WARN");
+        logger.error("测{}试", "ERROR");
     }
 }

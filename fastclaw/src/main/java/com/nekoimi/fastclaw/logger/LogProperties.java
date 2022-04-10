@@ -37,7 +37,7 @@ public class LogProperties extends BaseConfigProperties {
 
     @Override
     protected String configPath() {
-        return "log.properties";
+        return "/log.properties";
     }
 
 

@@ -36,7 +36,7 @@ public final class LoggerFactory {
 
     static {
         PathUtils.mkDirs(LOG_PATH);
-        LoggerFactory.adapterRegistry(ConsoleLoggerAdapter.ADAPTER, ConsoleLoggerAdapter.class);
+        LoggerFactory.adapterRegistry(ConsoleLoggerAdapter.ADAPTER.toLowerCase(), ConsoleLoggerAdapter.class);
     }
 
     /**
@@ -63,11 +63,13 @@ public final class LoggerFactory {
         if (StringUtils.isNotEmpty(configAdapter)) {
             List<String> adapterList = List.of(configAdapter.split("[,]"));
             for (String adapterName : adapterList) {
-                Class<? extends LoggerAdapter> adapterClazz = loggerAdapterRegistry.get(adapterName);
-                if (adapterClazz != null) {
-                    LoggerAdapter adapter = ClazzUtils.newInstance(adapterClazz);
-                    if (adapter != null) {
-                        loggerAdapterList.add(adapter);
+                if (StringUtils.isNotEmpty(adapterName)) {
+                    Class<? extends LoggerAdapter> adapterClazz = loggerAdapterRegistry.get(adapterName.toLowerCase());
+                    if (adapterClazz != null) {
+                        LoggerAdapter adapter = ClazzUtils.newInstance(adapterClazz);
+                        if (adapter != null) {
+                            loggerAdapterList.add(adapter);
+                        }
                     }
                 }
             }
